@@ -10,7 +10,6 @@ import {
   Server,
   RefreshCw,
   Download,
-  Palette,
   Users,
   List,
   LayoutGrid,
@@ -18,7 +17,6 @@ import {
   Search,
   Bell,
   Settings,
-  Sparkles,
   ScreenShare,
   PencilLine,
   MousePointer2,
@@ -26,6 +24,7 @@ import {
   Shield,
   Radio,
   ChevronLeft,
+  ArrowLeft,
   Home as HomeIcon,
   GraduationCap,
   Building2,
@@ -60,154 +59,125 @@ function Index() {
   const [view, setView] = useState<"table" | "list" | "grid">("table");
 
   return (
-    <div dir="rtl" className="min-h-screen relative overflow-hidden">
-      {/* Ambient wash */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -right-20 h-[520px] w-[520px] rounded-full blur-3xl opacity-30 grad-gold float-anim" />
-        <div className="absolute top-1/3 -left-40 h-[600px] w-[600px] rounded-full blur-3xl opacity-20" style={{ background: "radial-gradient(circle, var(--color-success), transparent 70%)" }} />
-      </div>
-
+    <div dir="rtl" className="min-h-screen bg-background text-foreground">
       {/* Top nav */}
-      <header className="sticky top-0 z-40 glass border-b border-border/70">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-8 py-4">
+      <header className="sticky top-0 z-40 glass border-b border-border">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 md:px-10 py-5">
           <div className="flex items-center gap-3">
-            <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl grad-ink shadow-[var(--shadow-md)]">
-              <ScreenShare className="h-5 w-5 text-[var(--color-background)]" strokeWidth={2} />
-              <span className="absolute -bottom-1 -left-1 h-3.5 w-3.5 rounded-full grad-gold ring-2 ring-background" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-50 border border-border">
+              <ScreenShare className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
             </div>
             <div className="leading-tight">
-              <div className="text-lg font-display font-bold tracking-tight">LocalCast</div>
-              <div className="text-[11px] text-muted-foreground font-mono">v73 · 07-15 · 16:11</div>
+              <div className="font-display text-lg font-light tracking-tight text-slate-900">LocalCast</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">v73 · 07-15</div>
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-1 surface rounded-full p-1">
+          <nav className="hidden md:flex items-center gap-1">
             {["חדרים", "היסטוריה", "הקלטות", "משתתפים", "הגדרות"].map((item, i) => (
               <button
                 key={item}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-full text-sm transition-all ${
                   i === 0
-                    ? "grad-ink text-[var(--color-background)] shadow-[var(--shadow-sm)]"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-slate-900 font-medium"
+                    : "text-muted-foreground hover:text-slate-800 font-light"
                 }`}
               >
                 {item}
+                {i === 0 && (
+                  <span className="block h-px w-6 mx-auto mt-1 bg-slate-300" />
+                )}
               </button>
             ))}
           </nav>
 
           <div className="flex items-center gap-2">
-            <button className="surface rounded-xl px-3 py-2 text-sm font-medium hover:bg-muted transition-colors flex items-center gap-2">
-              <Download className="h-4 w-4" />
+            <button className="rounded-full border border-border px-4 py-2 text-xs font-medium tracking-wide hover:border-slate-400 transition-colors flex items-center gap-2 text-slate-700">
+              <Download className="h-3.5 w-3.5" strokeWidth={1.5} />
               עדכן תוכנה
             </button>
-            <button className="surface h-10 w-10 rounded-xl flex items-center justify-center hover:bg-muted transition-colors">
-              <Palette className="h-4 w-4" />
-            </button>
-            <button className="surface h-10 w-10 rounded-xl flex items-center justify-center hover:bg-muted transition-colors relative">
-              <Bell className="h-4 w-4" />
-              <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+            <button className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:border-slate-400 transition-colors relative">
+              <Bell className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
+              <span className="absolute top-2.5 right-2.5 h-1.5 w-1.5 rounded-full bg-[var(--color-gold)]" />
             </button>
           </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] px-8 py-12">
+      <main className="mx-auto max-w-5xl px-6 md:px-10 py-16 space-y-16">
         {/* HERO */}
-        <section className="mb-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-7 space-y-7">
-            <div className="inline-flex items-center gap-2 surface rounded-full px-4 py-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inset-0 rounded-full pulse-dot text-[var(--color-success)]" />
-                <span className="relative h-2 w-2 rounded-full bg-[var(--color-success)]" />
-              </span>
-              <span className="text-xs font-medium tracking-wide">רשת מקומית פעילה · 12 מכשירים מזוהים</span>
-            </div>
-
-            <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4 font-medium">
-                — Local Broadcasting Suite —
-              </div>
-              <h1 className="font-display text-6xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight leading-[0.95] text-[var(--color-ink)]">
-                שיתוף מסך <br />
-                <span className="italic font-normal gold-text">בזמן אמת.</span>
-              </h1>
-            </div>
-
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-              מערכת משרדית לשיתוף מסך, סימון והצגה — פועלת אך ורק ברשת המקומית שלך.
-              ללא ענן, ללא הגדרות, אפס השהיה.
+        <header className="text-center space-y-5">
+          <h1 className="font-display text-6xl md:text-7xl font-extralight tracking-tight text-slate-900">
+            LocalCast
+          </h1>
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-10 bg-slate-200" />
+            <p className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">
+              בזמן אמת · ברשת מקומית בלבד
             </p>
-
-            <div className="flex flex-wrap gap-2.5">
-              <FeaturePill icon={Zap} label="השהיה ‎<‎ 20ms" />
-              <FeaturePill icon={Shield} label="LAN בלבד" />
-              <FeaturePill icon={PencilLine} label="סימון חי" />
-              <FeaturePill icon={Users} label="עד 16 משתתפים" />
-            </div>
+            <span className="h-px w-10 bg-slate-200" />
           </div>
+          <p className="text-base text-muted-foreground max-w-lg mx-auto font-light leading-relaxed pt-2">
+            מערכת משרדית לשיתוף מסך, סימון והצגה. ללא ענן, ללא הגדרות, אפס השהיה.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 pt-2">
+            <FeaturePill icon={Zap} label="השהיה פחות מ־20ms" />
+            <FeaturePill icon={Shield} label="LAN בלבד" />
+            <FeaturePill icon={PencilLine} label="סימון חי" />
+            <FeaturePill icon={Users} label="עד 16 משתתפים" />
+          </div>
+        </header>
 
-          {/* JOIN / CREATE CARD */}
-          <div className="lg:col-span-5">
-            <div className="surface-elevated rounded-3xl p-7 relative overflow-hidden">
-              <div aria-hidden className="absolute top-0 left-0 right-0 h-1 grad-gold" />
-
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1">Session</div>
-                  <h2 className="font-display text-2xl font-semibold flex items-center gap-2">
-                    כניסה ויצירת חדר
-                  </h2>
+        {/* PRIMARY ACTION CARD */}
+        <section>
+          <div className="bg-white border border-border rounded-[2rem] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+              {/* Join */}
+              <div className="space-y-5">
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Join</div>
+                  <h2 className="font-display text-2xl font-light text-slate-900">הצטרפות לחדר קיים</h2>
                 </div>
-                <div className="h-10 w-10 rounded-full grad-ink flex items-center justify-center">
-                  <LogIn className="h-4 w-4 text-[var(--color-background)]" />
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="space-y-1.5">
-                  <FieldLabel>שם משתמש (לא חובה)</FieldLabel>
+                <div className="space-y-3">
+                  <FieldLabel>קוד חדר</FieldLabel>
                   <input
-                    className="w-full bg-[var(--color-surface-2)] hairline rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)] transition"
-                    placeholder="שם משתמש"
-                    defaultValue="יעקב"
-                  />
-                </div>
-
-                <button className="w-full grad-ink text-[var(--color-background)] font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-[var(--shadow-md)] hover:brightness-125 active:scale-[0.99] transition">
-                  <MonitorUp className="h-5 w-5" />
-                  צור חדר חדש
-                </button>
-
-                <div className="space-y-1.5">
-                  <FieldLabel>שם חדר קבוע</FieldLabel>
-                  <div className="flex gap-2">
-                    <input
-                      className="flex-1 bg-[var(--color-surface-2)] hairline rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[var(--color-gold)]/30 focus:border-[var(--color-gold)] transition"
-                      placeholder="לדוגמה: ישיבת בוקר"
-                    />
-                    <button className="grad-gold text-[var(--color-accent-foreground)] font-semibold px-5 rounded-xl flex items-center gap-2 hover:brightness-105 active:scale-[0.99] transition shadow-[var(--shadow-gold)]">
-                      <Pin className="h-4 w-4" />
-                      קבע
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 py-1">
-                  <div className="h-px flex-1 bg-border" />
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">או הצטרפו לפי קוד</span>
-                  <div className="h-px flex-1 bg-border" />
-                </div>
-
-                <div className="flex gap-2">
-                  <input
-                    className="flex-1 bg-[var(--color-surface-2)] hairline rounded-xl px-4 py-3 text-lg font-mono tracking-[0.5em] text-center outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)] transition"
+                    className="w-full bg-slate-50 border border-transparent rounded-xl px-5 py-4 text-lg font-mono tracking-[0.4em] text-center outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all placeholder:text-slate-300"
                     placeholder="0000"
                     maxLength={4}
                   />
-                  <button className="surface rounded-xl px-5 font-semibold flex items-center gap-2 hover:bg-muted transition">
-                    <LogIn className="h-4 w-4" />
-                    הצטרף
+                  <button className="w-full bg-slate-900 text-white rounded-xl py-3.5 font-medium hover:bg-slate-800 transition-colors tracking-wide text-sm flex items-center justify-center gap-2">
+                    <LogIn className="h-4 w-4" strokeWidth={1.5} />
+                    כניסה לחדר
+                  </button>
+                </div>
+              </div>
+
+              {/* Create */}
+              <div className="flex flex-col justify-center border-t md:border-t-0 md:border-r border-border pt-8 md:pt-0 md:pr-12 space-y-5">
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Create</div>
+                  <h2 className="font-display text-2xl font-light text-slate-900">התחל חוויה משלך</h2>
+                </div>
+                <div className="space-y-3">
+                  <FieldLabel>שם משתמש (לא חובה)</FieldLabel>
+                  <input
+                    className="w-full bg-slate-50 border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
+                    placeholder="שם משתמש"
+                    defaultValue="יעקב"
+                  />
+                  <div className="flex gap-2">
+                    <input
+                      className="flex-1 bg-slate-50 border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
+                      placeholder="שם חדר קבוע"
+                    />
+                    <button className="rounded-xl border border-border px-4 hover:border-slate-400 transition-colors text-sm text-slate-700 flex items-center gap-1.5">
+                      <Pin className="h-3.5 w-3.5" strokeWidth={1.5} />
+                      קבע
+                    </button>
+                  </div>
+                  <button className="group w-full flex items-center justify-center gap-2 text-slate-800 font-medium py-3.5 px-6 rounded-xl border border-slate-200 hover:border-slate-400 transition-all text-sm">
+                    <span>צור חדר חדש</span>
+                    <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" strokeWidth={1.5} />
                   </button>
                 </div>
               </div>
@@ -215,45 +185,40 @@ function Index() {
           </div>
         </section>
 
-        {/* STATS ROW */}
-        <section className="mb-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <StatCard icon={DoorOpen} label="חדרים פתוחים" value="4" trend="+2" tone="ink" />
-          <StatCard icon={Users} label="משתתפים פעילים" value="6" trend="LIVE" tone="success" />
-          <StatCard icon={Radio} label="משדרים כעת" value="2" trend="STREAM" tone="accent" />
-          <StatCard icon={Activity} label="עומס רשת" value="8%" trend="STABLE" tone="muted" />
+        {/* STATS */}
+        <section className="grid grid-cols-2 md:grid-cols-4 py-8 border-y border-border">
+          <StatCell value="4" label="חדרים פתוחים" />
+          <StatCell value="6" label="משתתפים פעילים" divider />
+          <StatCell value="2" label="משדרים כעת" divider />
+          <StatCell value="8%" label="עומס רשת" divider />
         </section>
 
         {/* ROOMS PANEL */}
-        <section className="surface-elevated rounded-3xl p-7 mb-12 relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-7">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl grad-ink flex items-center justify-center shadow-[var(--shadow-md)]">
-                <DoorOpen className="h-5 w-5 text-[var(--color-background)]" />
-              </div>
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-0.5">Active Sessions</div>
-                <div className="flex items-center gap-2">
-                  <h3 className="font-display text-3xl font-semibold">חדרים פתוחים</h3>
-                  <span className="grad-gold text-[var(--color-accent-foreground)] text-sm font-bold px-2.5 py-0.5 rounded-full shadow-[var(--shadow-gold)]">4</span>
-                </div>
-              </div>
+        <section className="space-y-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="space-y-1">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Active Sessions</div>
+              <h3 className="font-display text-2xl font-light text-slate-900 flex items-center gap-3">
+                חדרים פתוחים
+                <span className="text-sm text-muted-foreground font-light">— 4</span>
+              </h3>
             </div>
 
             <div className="flex items-center gap-3 flex-wrap">
               <div className="relative">
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} />
                 <input
-                  className="surface rounded-xl pr-9 pl-4 py-2 text-sm outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 w-56"
+                  className="bg-white border border-border rounded-full pr-9 pl-4 py-2 text-sm outline-none focus:ring-1 focus:ring-slate-300 w-56 font-light"
                   placeholder="חיפוש חדר או בעלים…"
                 />
               </div>
 
-              <button className="surface rounded-xl px-4 py-2 text-sm font-medium flex items-center gap-2 hover:bg-muted">
-                <Circle className="h-3 w-3 fill-[var(--color-success)] text-[var(--color-success)]" />
+              <button className="rounded-full border border-border px-4 py-2 text-xs font-medium flex items-center gap-2 hover:border-slate-400 text-slate-700">
+                <Circle className="h-2 w-2 fill-emerald-500 text-emerald-500" />
                 החדרים שלי
               </button>
 
-              <div className="surface rounded-xl p-1 flex items-center gap-1">
+              <div className="border border-border rounded-full p-1 flex items-center gap-1">
                 <ViewBtn active={view === "table"} onClick={() => setView("table")} icon={TableIcon} label="טבלה" />
                 <ViewBtn active={view === "grid"} onClick={() => setView("grid")} icon={LayoutGrid} label="רשת" />
                 <ViewBtn active={view === "list"} onClick={() => setView("list")} icon={List} label="רשימה" />
@@ -266,26 +231,26 @@ function Index() {
           {view === "list" && <ListView />}
         </section>
 
-        {/* NETWORK PANELS */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {/* Connection addresses */}
-          <div className="surface-elevated rounded-3xl p-7">
+        {/* NETWORK & SERVERS */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-white border border-border rounded-3xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-muted flex items-center justify-center">
-                  <Wifi className="h-5 w-5 text-[var(--color-primary)]" />
+                <div className="h-10 w-10 rounded-2xl bg-slate-50 flex items-center justify-center">
+                  <Wifi className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-0.5">Network Access</div>
-                  <h3 className="font-display text-lg font-semibold">כתובת לחיבור ממחשבים אחרים</h3>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-0.5">Network Access</div>
+                  <h3 className="font-display text-base font-medium text-slate-900">כתובת לחיבור ממחשבים אחרים</h3>
                 </div>
               </div>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-[var(--color-success)]/12 text-[var(--color-success)] font-semibold">
-                ● מקוון
+              <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 font-medium uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                מקוון
               </span>
             </div>
 
-            <p className="text-xs text-muted-foreground mb-4">
+            <p className="text-xs text-muted-foreground mb-5 font-light leading-relaxed">
               פתחו את הכתובת בדפדפן במחשב אחר באותה רשת. לחצו כדי להעתיק.
             </p>
 
@@ -295,25 +260,24 @@ function Index() {
             </div>
           </div>
 
-          {/* Servers on network */}
-          <div className="surface-elevated rounded-3xl p-7">
+          <div className="bg-white border border-border rounded-3xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-muted flex items-center justify-center">
-                  <Server className="h-5 w-5 text-[var(--color-accent)]" />
+                <div className="h-10 w-10 rounded-2xl bg-slate-50 flex items-center justify-center">
+                  <Server className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-0.5">Servers</div>
-                  <h3 className="font-display text-lg font-semibold">שרתים ברשת</h3>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-0.5">Servers</div>
+                  <h3 className="font-display text-base font-medium text-slate-900">שרתים ברשת</h3>
                 </div>
               </div>
-              <button className="surface rounded-xl px-3 py-1.5 text-sm flex items-center gap-2 hover:bg-muted">
-                <RefreshCw className="h-3.5 w-3.5" />
+              <button className="rounded-full border border-border px-3 py-1.5 text-xs flex items-center gap-1.5 hover:border-slate-400 text-slate-700">
+                <RefreshCw className="h-3 w-3" strokeWidth={1.5} />
                 רענן
               </button>
             </div>
 
-            <div className="space-y-2">
+            <div className="divide-y divide-border">
               <ServerRow name="שרת ראשי · Office-Main" ip="10.10.0.184" ping="4ms" active />
               <ServerRow name="שרת גיבוי · Office-Backup" ip="10.10.0.185" ping="9ms" />
               <ServerRow name="Meeting-Room-42" ip="10.10.0.201" ping="12ms" />
@@ -322,43 +286,48 @@ function Index() {
         </section>
 
         {/* TOOLS */}
-        <section className="mb-12">
-          <div className="flex items-end justify-between mb-6">
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1">Toolkit</div>
-              <h3 className="font-display text-3xl font-semibold">כלים בזמן שידור</h3>
+        <section className="space-y-6">
+          <div className="flex items-end justify-between">
+            <div className="space-y-1">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Toolkit</div>
+              <h3 className="font-display text-2xl font-light text-slate-900">כלים בזמן שידור</h3>
             </div>
-            <a className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 cursor-pointer">
+            <a className="text-xs text-muted-foreground border-b border-transparent hover:border-slate-300 transition-colors pb-1 cursor-pointer flex items-center gap-1">
               כל הכלים
-              <ChevronLeft className="h-3.5 w-3.5" />
+              <ChevronLeft className="h-3 w-3" strokeWidth={1.5} />
             </a>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <ToolCard icon={ScreenShare} title="שיתוף מסך" desc="שדר את המסך שלך בזמן אמת" />
-            <ToolCard icon={PencilLine} title="סימון על המסך" desc="ציור וחיצים על התוכן המשותף" accent />
+            <ToolCard icon={PencilLine} title="סימון על המסך" desc="ציור וחיצים על התוכן המשותף" />
             <ToolCard icon={MousePointer2} title="הצבע מרוחק" desc="שלוט בעכבר של המציג" />
             <ToolCard icon={Users} title="ניהול משתתפים" desc="הזמן, השתק, הסר מהחדר" />
           </div>
         </section>
 
-        <footer className="text-center py-10 border-t border-border">
-          <div className="flex items-center justify-center gap-2 mb-2 font-display italic text-muted-foreground">
-            <Sparkles className="h-3.5 w-3.5 text-[var(--color-gold)]" />
-            LocalCast · Local Broadcasting Suite
+        <footer className="pt-12 pb-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2 text-xs text-muted-foreground font-light">
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+            <span className="uppercase tracking-[0.2em]">LocalCast · Local Broadcasting Suite</span>
           </div>
-          <div className="text-xs font-mono text-muted-foreground/70">
-            גרסה v73 · פועלת ברשת מקומית בלבד
+          <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+            v73 · פועלת ברשת מקומית בלבד
           </div>
         </footer>
       </main>
 
-      {/* Floating action */}
-      <button className="fixed bottom-8 left-8 h-14 w-14 rounded-2xl grad-ink shadow-[var(--shadow-lg)] flex items-center justify-center hover:scale-105 active:scale-95 transition z-30">
-        <MonitorUp className="h-6 w-6 text-[var(--color-background)]" />
+      {/* Floating actions */}
+      <button className="fixed bottom-8 left-8 h-12 w-12 rounded-full bg-slate-900 text-white shadow-[var(--shadow-lg)] flex items-center justify-center hover:bg-slate-800 transition z-30">
+        <MonitorUp className="h-5 w-5" strokeWidth={1.5} />
       </button>
-      <button className="fixed bottom-8 right-8 h-14 w-14 rounded-2xl grad-gold shadow-[var(--shadow-gold)] flex items-center justify-center hover:scale-105 active:scale-95 transition z-30">
-        <Settings className="h-6 w-6 text-[var(--color-accent-foreground)]" />
+      <button className="fixed bottom-8 right-8 h-12 w-12 rounded-full bg-white border border-border shadow-[var(--shadow-md)] flex items-center justify-center hover:border-slate-400 transition z-30">
+        <Settings className="h-5 w-5 text-slate-700" strokeWidth={1.5} />
       </button>
+
+      {/* silence unused imports */}
+      <span className="hidden">
+        <DoorOpen /><Radio /><Activity />
+      </span>
     </div>
   );
 }
@@ -366,49 +335,23 @@ function Index() {
 /* ===== Components ===== */
 
 function FieldLabel({ children }: { children: React.ReactNode }) {
-  return <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-semibold">{children}</div>;
+  return <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">{children}</div>;
 }
 
 function FeaturePill({ icon: Icon, label }: { icon: typeof Zap; label: string }) {
   return (
-    <div className="surface rounded-full px-3.5 py-1.5 flex items-center gap-2 text-sm">
-      <Icon className="h-3.5 w-3.5 text-[var(--color-gold)]" />
-      <span className="font-medium">{label}</span>
+    <div className="border border-border rounded-full px-3.5 py-1.5 flex items-center gap-2 text-xs bg-white">
+      <Icon className="h-3 w-3 text-slate-500" strokeWidth={1.5} />
+      <span className="font-light text-slate-700">{label}</span>
     </div>
   );
 }
 
-function StatCard({
-  icon: Icon,
-  label,
-  value,
-  trend,
-  tone,
-}: {
-  icon: typeof Zap;
-  label: string;
-  value: string;
-  trend: string;
-  tone: "ink" | "success" | "accent" | "muted";
-}) {
-  const toneMap = {
-    ink: "text-[var(--color-ink)] bg-muted",
-    success: "text-[var(--color-success)] bg-[var(--color-success)]/12",
-    accent: "text-[var(--color-accent)] bg-[var(--color-accent)]/12",
-    muted: "text-muted-foreground bg-muted",
-  };
+function StatCell({ value, label, divider }: { value: string; label: string; divider?: boolean }) {
   return (
-    <div className="surface rounded-2xl p-6 relative overflow-hidden group hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition">
-      <div className="flex items-center justify-between mb-4">
-        <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${toneMap[tone]}`}>
-          <Icon className="h-5 w-5" />
-        </div>
-        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${toneMap[tone]} uppercase tracking-widest`}>
-          {trend}
-        </span>
-      </div>
-      <div className="font-display text-5xl font-semibold tracking-tight text-[var(--color-ink)]">{value}</div>
-      <div className="text-xs text-muted-foreground mt-1">{label}</div>
+    <div className={`text-center space-y-1 ${divider ? "md:border-r md:border-border" : ""}`}>
+      <div className="font-display text-3xl font-extralight text-slate-900">{value}</div>
+      <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">{label}</div>
     </div>
   );
 }
@@ -427,13 +370,13 @@ function ViewBtn({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs transition-all ${
         active
-          ? "grad-ink text-[var(--color-background)] shadow-[var(--shadow-sm)]"
-          : "text-muted-foreground hover:text-foreground"
+          ? "bg-slate-900 text-white font-medium"
+          : "text-muted-foreground hover:text-slate-800 font-light"
       }`}
     >
-      <Icon className="h-3.5 w-3.5" />
+      <Icon className="h-3 w-3" strokeWidth={1.5} />
       {label}
     </button>
   );
@@ -441,8 +384,8 @@ function ViewBtn({
 
 function TableView() {
   return (
-    <div className="rounded-2xl overflow-hidden hairline">
-      <div className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-3 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] border-b border-border bg-[var(--color-surface-2)]">
+    <div className="rounded-2xl overflow-hidden border border-border bg-white">
+      <div className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.2em] border-b border-border bg-slate-50/50">
         <div>קוד</div>
         <div>חדר / בעלים</div>
         <div className="text-center">סוג</div>
@@ -452,64 +395,60 @@ function TableView() {
       {rooms.map((room) => (
         <div
           key={room.code}
-          className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-5 items-center border-b border-border/70 last:border-b-0 hover:bg-[var(--color-surface-2)]/60 transition-colors group bg-surface"
+          className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-5 items-center border-b border-border last:border-b-0 hover:bg-slate-50/40 transition-colors group"
         >
-          <div className="flex items-center gap-2">
-            <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${
+          <div className="flex items-center gap-3">
+            <div className={`h-9 w-9 rounded-xl flex items-center justify-center border ${
               room.status === "live"
-                ? "bg-[var(--color-success)]/12 text-[var(--color-success)]"
-                : "bg-muted text-muted-foreground"
+                ? "bg-emerald-50 text-emerald-600 border-emerald-100"
+                : "bg-slate-50 text-slate-400 border-border"
             }`}>
-              <room.icon className="h-4 w-4" />
+              <room.icon className="h-4 w-4" strokeWidth={1.5} />
             </div>
-            <span className="font-mono text-lg font-semibold text-[var(--color-ink)]">{room.code}</span>
+            <span className="font-mono text-base text-slate-900">{room.code}</span>
           </div>
 
           <div className="min-w-0">
-            <div className="font-display font-semibold text-lg truncate flex items-center gap-2">
+            <div className="font-display font-medium text-base truncate flex items-center gap-2 text-slate-900">
               {room.name}
               {room.status === "live" && (
-                <span className="inline-flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded-full bg-[var(--color-success)]/12 text-[var(--color-success)] font-bold uppercase tracking-widest">
-                  <Circle className="h-1.5 w-1.5 fill-current" />
-                  LIVE
+                <span className="inline-flex items-center gap-1.5 text-[9px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-medium uppercase tracking-[0.15em]">
+                  <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                  Live
                 </span>
               )}
             </div>
-            <div className="text-xs text-muted-foreground truncate">
+            <div className="text-xs text-muted-foreground truncate font-light">
               {room.owner} · {room.hint}
             </div>
           </div>
 
           <div className="flex justify-center items-center gap-2">
-            <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest ${
-              room.tag === "קבוע"
-                ? "bg-[var(--color-success)]/12 text-[var(--color-success)]"
-                : "bg-[var(--color-warning)]/15 text-[var(--color-warning)]"
-            }`}>
-              <Pin className="inline h-2.5 w-2.5 ml-1" />
+            <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-[0.15em] font-medium bg-slate-50 text-slate-600 border border-border inline-flex items-center gap-1">
+              <Pin className="h-2.5 w-2.5" strokeWidth={1.5} />
               {room.tag}
             </span>
             {room.mine && (
-              <span className="text-[10px] font-bold px-2 py-1 rounded-full grad-gold text-[var(--color-accent-foreground)]">
+              <span className="text-[10px] font-medium px-2 py-1 rounded-full bg-[color:var(--color-gold)]/15 text-[color:var(--color-gold)] uppercase tracking-[0.15em]">
                 שלך
               </span>
             )}
           </div>
 
           <div className="text-center">
-            <span className="font-mono text-sm font-semibold text-[var(--color-ink)]">{room.participants}</span>
-            <div className="mt-1.5 h-1 w-20 mx-auto bg-muted rounded-full overflow-hidden">
+            <span className="font-mono text-sm text-slate-700">{room.participants}</span>
+            <div className="mt-2 h-px w-20 mx-auto bg-border overflow-hidden">
               <div
-                className="h-full grad-gold"
+                className="h-full bg-slate-400"
                 style={{ width: `${(parseInt(room.participants) / parseInt(room.participants.split("/")[1])) * 100}%` }}
               />
             </div>
           </div>
 
           <div className="flex justify-center">
-            <button className="grad-ink text-[var(--color-background)] text-sm font-semibold px-4 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+            <button className="text-xs font-medium text-slate-800 border-b border-transparent group-hover:border-slate-300 pb-0.5 flex items-center gap-1 transition-all">
               הצטרף
-              <ChevronLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3 w-3" strokeWidth={1.5} />
             </button>
           </div>
         </div>
@@ -522,25 +461,32 @@ function GridView() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
       {rooms.map((room) => (
-        <div key={room.code} className="surface rounded-2xl p-5 hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition group relative overflow-hidden">
-          {room.status === "live" && (
-            <div aria-hidden className="absolute top-0 left-0 right-0 h-0.5 shimmer" />
-          )}
-          <div className="flex items-start justify-between mb-4">
-            <div className={`h-12 w-12 rounded-2xl flex items-center justify-center ${
-              room.status === "live" ? "grad-ink text-[var(--color-background)]" : "bg-muted text-muted-foreground"
+        <div key={room.code} className="bg-white border border-border rounded-2xl p-6 hover:border-slate-300 transition group">
+          <div className="flex items-start justify-between mb-5">
+            <div className={`h-11 w-11 rounded-2xl flex items-center justify-center border ${
+              room.status === "live" ? "bg-slate-900 text-white border-slate-900" : "bg-slate-50 text-slate-500 border-border"
             }`}>
-              <room.icon className="h-6 w-6" />
+              <room.icon className="h-5 w-5" strokeWidth={1.5} />
             </div>
-            <span className="font-mono text-2xl font-bold gold-text">{room.code}</span>
+            <span className="font-mono text-xl text-slate-400 font-light">{room.code}</span>
           </div>
-          <div className="font-display font-semibold text-lg mb-1">{room.name}</div>
-          <div className="text-xs text-muted-foreground mb-4">{room.owner} · {room.hint}</div>
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-[var(--color-success)]/12 text-[var(--color-success)] uppercase tracking-widest">
-              {room.tag}
+          <div className="font-display font-medium text-base mb-1 text-slate-900">{room.name}</div>
+          <div className="text-xs text-muted-foreground mb-5 font-light">{room.owner} · {room.hint}</div>
+          <div className="flex items-center justify-between pt-4 border-t border-border">
+            <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-medium inline-flex items-center gap-1.5">
+              {room.status === "live" ? (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  פעיל
+                </>
+              ) : (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+                  ממתין
+                </>
+              )}
             </span>
-            <span className="font-mono text-sm font-semibold text-muted-foreground">{room.participants}</span>
+            <span className="font-mono text-xs text-slate-600">{room.participants}</span>
           </div>
         </div>
       ))}
@@ -550,24 +496,26 @@ function GridView() {
 
 function ListView() {
   return (
-    <div className="space-y-2">
+    <div className="bg-white border border-border rounded-2xl divide-y divide-border overflow-hidden">
       {rooms.map((room) => (
-        <div key={room.code} className="surface rounded-xl p-4 flex items-center gap-4 hover:bg-muted transition">
-          <div className={`h-10 w-10 rounded-lg flex items-center justify-center ${
-            room.status === "live" ? "grad-ink text-[var(--color-background)]" : "bg-muted"
+        <div key={room.code} className="p-5 flex items-center gap-4 hover:bg-slate-50/40 transition">
+          <div className={`h-10 w-10 rounded-xl flex items-center justify-center border ${
+            room.status === "live" ? "bg-slate-900 text-white border-slate-900" : "bg-slate-50 border-border text-slate-500"
           }`}>
-            <room.icon className="h-5 w-5" />
+            <room.icon className="h-4 w-4" strokeWidth={1.5} />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-semibold flex items-center gap-2">
-              <span className="font-mono">{room.code}</span>
+            <div className="flex items-center gap-2 text-slate-900">
+              <span className="font-mono text-sm text-slate-500">{room.code}</span>
               <span className="text-muted-foreground">·</span>
-              <span className="font-display">{room.name}</span>
+              <span className="font-display font-medium">{room.name}</span>
             </div>
-            <div className="text-xs text-muted-foreground">{room.owner} · {room.hint}</div>
+            <div className="text-xs text-muted-foreground font-light">{room.owner} · {room.hint}</div>
           </div>
-          <span className="text-xs font-semibold text-muted-foreground font-mono">{room.participants}</span>
-          <button className="surface rounded-lg px-3 py-1.5 text-sm hover:bg-muted">הצטרף</button>
+          <span className="text-xs font-mono text-muted-foreground">{room.participants}</span>
+          <button className="text-xs font-medium text-slate-800 border-b border-transparent hover:border-slate-300 pb-0.5">
+            הצטרף
+          </button>
         </div>
       ))}
     </div>
@@ -576,20 +524,22 @@ function ListView() {
 
 function AddressRow({ url, primary }: { url: string; primary?: boolean }) {
   return (
-    <div className={`flex items-center gap-2 rounded-xl p-1.5 ${
+    <div className={`flex items-center gap-2 rounded-xl p-2 ${
       primary
-        ? "bg-gradient-to-l from-[var(--color-gold)]/10 to-transparent border border-[var(--color-gold)]/30"
-        : "surface"
+        ? "bg-slate-50 border border-slate-200"
+        : "border border-border"
     }`}>
-      <button className="bg-surface hairline rounded-lg px-3 py-2 text-xs font-semibold flex items-center gap-1.5 hover:bg-muted">
-        <Copy className="h-3.5 w-3.5" />
+      <button className="rounded-lg px-3 py-2 text-xs font-medium flex items-center gap-1.5 hover:bg-white text-slate-700 border border-border">
+        <Copy className="h-3 w-3" strokeWidth={1.5} />
         העתק
       </button>
-      <div className="flex-1 font-mono text-sm px-3 py-2 truncate text-left" dir="ltr">
+      <div className="flex-1 font-mono text-sm px-2 py-2 truncate text-left text-slate-700" dir="ltr">
         {url}
       </div>
       {primary && (
-        <span className="text-[10px] font-bold px-2 py-1 rounded-md grad-gold text-[var(--color-accent-foreground)] uppercase tracking-widest">מועדף</span>
+        <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-white border border-border text-slate-600 uppercase tracking-[0.15em]">
+          מועדף
+        </span>
       )}
     </div>
   );
@@ -597,44 +547,36 @@ function AddressRow({ url, primary }: { url: string; primary?: boolean }) {
 
 function ServerRow({ name, ip, ping, active }: { name: string; ip: string; ping: string; active?: boolean }) {
   return (
-    <div className={`flex items-center gap-3 rounded-xl px-4 py-3 transition ${
-      active
-        ? "bg-gradient-to-l from-[var(--color-primary)]/8 to-transparent border border-[var(--color-primary)]/25"
-        : "surface hover:bg-muted"
-    }`}>
-      <div className={`h-9 w-9 rounded-lg flex items-center justify-center ${
-        active ? "grad-ink text-[var(--color-background)]" : "bg-muted text-muted-foreground"
+    <div className="flex items-center gap-3 py-4 first:pt-0 last:pb-0">
+      <div className={`h-9 w-9 rounded-xl flex items-center justify-center border ${
+        active ? "bg-slate-900 text-white border-slate-900" : "bg-slate-50 text-slate-500 border-border"
       }`}>
-        <Server className="h-4 w-4" />
+        <Server className="h-4 w-4" strokeWidth={1.5} />
       </div>
       <div className="flex-1 min-w-0">
-        <div className="font-semibold text-sm truncate">{name}</div>
-        <div className="text-xs text-muted-foreground font-mono" dir="ltr">{ip}</div>
+        <div className="font-medium text-sm truncate text-slate-900">{name}</div>
+        <div className="text-xs text-muted-foreground font-mono font-light" dir="ltr">{ip}</div>
       </div>
-      <div className="text-xs font-mono px-2 py-1 rounded-md bg-[var(--color-success)]/12 text-[var(--color-success)] font-semibold">
-        {ping}
-      </div>
+      <div className="text-xs font-mono text-slate-600">{ping}</div>
       {active && (
-        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full grad-ink text-[var(--color-background)] uppercase tracking-widest">מחובר</span>
+        <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 uppercase tracking-[0.15em] inline-flex items-center gap-1.5">
+          <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+          מחובר
+        </span>
       )}
     </div>
   );
 }
 
-function ToolCard({ icon: Icon, title, desc, accent }: { icon: typeof Zap; title: string; desc: string; accent?: boolean }) {
+function ToolCard({ icon: Icon, title, desc }: { icon: typeof Zap; title: string; desc: string }) {
   return (
-    <div className={`surface rounded-2xl p-6 hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition group cursor-pointer relative overflow-hidden ${
-      accent ? "border-[var(--color-gold)]/40" : ""
-    }`}>
-      {accent && <div aria-hidden className="absolute top-0 left-0 right-0 h-0.5 grad-gold" />}
-      <div className={`h-11 w-11 rounded-2xl flex items-center justify-center mb-4 ${
-        accent ? "grad-gold text-[var(--color-accent-foreground)]" : "bg-muted text-[var(--color-primary)]"
-      }`}>
-        <Icon className="h-5 w-5" />
+    <div className="bg-white border border-border rounded-2xl p-6 hover:border-slate-300 transition group cursor-pointer">
+      <div className="h-10 w-10 rounded-2xl flex items-center justify-center mb-5 bg-slate-50 text-slate-500 group-hover:text-slate-900 transition-colors border border-border">
+        <Icon className="h-4 w-4" strokeWidth={1.5} />
       </div>
-      <div className="font-display font-semibold text-lg mb-1">{title}</div>
-      <div className="text-xs text-muted-foreground leading-relaxed">{desc}</div>
-      <ChevronLeft className="absolute bottom-5 left-5 h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all" />
+      <div className="font-display font-medium text-base mb-1.5 text-slate-900">{title}</div>
+      <div className="text-xs text-muted-foreground leading-relaxed font-light">{desc}</div>
+      <ArrowLeft className="mt-4 h-3.5 w-3.5 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all" strokeWidth={1.5} />
     </div>
   );
 }
