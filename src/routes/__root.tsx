@@ -77,17 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "שיתוף מסך וסימון — מערכת משרדית" },
-      { name: "description", content: "מערכת שיתוף מסך, סימון והדגמה ברשת מקומית עם ניהול חדרים חכם" },
-      { name: "author", content: "LocalCast" },
-      { property: "og:title", content: "שיתוף מסך וסימון — מערכת משרדית" },
-      { property: "og:description", content: "מערכת שיתוף מסך, סימון והדגמה ברשת מקומית עם ניהול חדרים חכם" },
+      { title: "TENARCH — שיתוף מסך וסימון ברשת המשרד" },
+      { name: "description", content: "TENARCH · חוויה ארכיטקטונית לשיתוף מסך, סימון והדגמה ברשת מקומית. אפס השהיה, פרטיות מלאה." },
+      { name: "author", content: "TENARCH" },
+      { property: "og:title", content: "TENARCH — שיתוף מסך וסימון ברשת המשרד" },
+      { property: "og:description", content: "TENARCH · חוויה ארכיטקטונית לשיתוף מסך, סימון והדגמה ברשת מקומית. אפס השהיה, פרטיות מלאה." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "שיתוף מסך וסימון — מערכת משרדית" },
-      { name: "twitter:description", content: "מערכת שיתוף מסך, סימון והדגמה ברשת מקומית עם ניהול חדרים חכם" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/631580fa-10b1-4867-925a-49f45816e24f/id-preview-a1b4e56c--bedd80cf-d72d-45c4-8e02-e7bee8761f25.lovable.app-1784132680882.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/631580fa-10b1-4867-925a-49f45816e24f/id-preview-a1b4e56c--bedd80cf-d72d-45c4-8e02-e7bee8761f25.lovable.app-1784132680882.png" },
+      { name: "twitter:title", content: "TENARCH — שיתוף מסך וסימון ברשת המשרד" },
+      { name: "twitter:description", content: "TENARCH · חוויה ארכיטקטונית לשיתוף מסך, סימון והדגמה ברשת מקומית." },
     ],
     links: [
       {
@@ -101,15 +99,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
       },
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/tenarch-logo.png" },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
