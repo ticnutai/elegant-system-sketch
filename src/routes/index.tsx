@@ -64,14 +64,15 @@ function Index() {
       <header className="sticky top-0 z-40 glass border-b border-border">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 md:px-10 py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--cream)] border border-border">
-              <ScreenShare className="h-4 w-4 text-emerald-800" strokeWidth={1.5} />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white border border-border overflow-hidden">
+              <img src="/tenarch-logo.png" alt="TENARCH" className="h-9 w-9 object-contain" />
             </div>
             <div className="leading-tight">
-              <div className="font-display text-lg font-light tracking-tight text-emerald-950">TENARCH</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">v73 · 07-15</div>
+              <div className="font-display text-xl tracking-[0.15em] text-emerald-950">TENARCH</div>
+              <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground font-medium">Architectural Broadcast · v73</div>
             </div>
           </div>
+
 
           <nav className="hidden md:flex items-center gap-1">
             {["חדרים", "היסטוריה", "הקלטות", "משתתפים", "הגדרות"].map((item, i) => (
