@@ -109,14 +109,14 @@ function Index() {
         {/* HERO */}
         <header className="text-center space-y-5">
           <h1 className="font-display text-6xl md:text-7xl font-extralight tracking-tight text-emerald-950">
-            LocalCast
+            TENARCH
           </h1>
           <div className="flex items-center justify-center gap-3">
-            <span className="h-px w-10 bg-slate-200" />
+            <span className="h-px w-10 bg-emerald-200" />
             <p className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">
               בזמן אמת · ברשת מקומית בלבד
             </p>
-            <span className="h-px w-10 bg-slate-200" />
+            <span className="h-px w-10 bg-emerald-200" />
           </div>
           <p className="text-base text-muted-foreground max-w-lg mx-auto font-light leading-relaxed pt-2">
             מערכת משרדית לשיתוף מסך, סימון והצגה. ללא ענן, ללא הגדרות, אפס השהיה.
