@@ -107,20 +107,22 @@ function Index() {
 
       <main className="mx-auto max-w-5xl px-6 md:px-10 py-16 space-y-16">
         {/* HERO */}
-        <header className="text-center space-y-5">
-          <h1 className="font-display text-6xl md:text-7xl font-extralight tracking-tight text-emerald-950">
+        <header className="text-center space-y-6">
+          <img src="/tenarch-logo.png" alt="TENARCH" className="mx-auto h-28 w-28 object-contain" />
+          <h1 className="font-display text-6xl md:text-7xl tracking-[0.08em] text-emerald-950">
             TENARCH
           </h1>
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-10 bg-emerald-200" />
             <p className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">
-              בזמן אמת · ברשת מקומית בלבד
+              בזמן אמת · ברשת המשרד בלבד
             </p>
             <span className="h-px w-10 bg-emerald-200" />
           </div>
           <p className="text-base text-muted-foreground max-w-lg mx-auto font-light leading-relaxed pt-2">
-            מערכת משרדית לשיתוף מסך, סימון והצגה. ללא ענן, ללא הגדרות, אפס השהיה.
+            חוויה ארכיטקטונית לשיתוף מסך, סימון והצגה. ללא ענן, ללא הגדרות, אפס השהיה — פרטיות מוחלטת בין קירות המשרד.
           </p>
+
           <div className="flex flex-wrap justify-center gap-2 pt-2">
             <FeaturePill icon={Zap} label="השהיה פחות מ־20ms" />
             <FeaturePill icon={Shield} label="LAN בלבד" />
