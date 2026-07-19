@@ -86,7 +86,7 @@ function Index() {
               >
                 {item}
                 {i === 0 && (
-                  <span className="block h-px w-6 mx-auto mt-1 bg-slate-300" />
+                  <span className="block h-px w-6 mx-auto mt-1 bg-emerald-300" />
                 )}
               </button>
             ))}
@@ -144,7 +144,7 @@ function Index() {
                 <div className="space-y-3">
                   <FieldLabel>קוד חדר</FieldLabel>
                   <input
-                    className="w-full bg-[var(--cream)] border border-transparent rounded-xl px-5 py-4 text-lg font-mono tracking-[0.4em] text-center outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all placeholder:text-emerald-200"
+                    className="w-full bg-[var(--cream)] border border-transparent rounded-xl px-5 py-4 text-lg font-mono tracking-[0.4em] text-center outline-none focus:ring-1 focus:ring-emerald-300 focus:bg-white transition-all placeholder:text-emerald-200"
                     placeholder="0000"
                     maxLength={4}
                   />
@@ -164,13 +164,13 @@ function Index() {
                 <div className="space-y-3">
                   <FieldLabel>שם משתמש (לא חובה)</FieldLabel>
                   <input
-                    className="w-full bg-[var(--cream)] border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
+                    className="w-full bg-[var(--cream)] border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-emerald-300 focus:bg-white transition-all"
                     placeholder="שם משתמש"
                     defaultValue="יעקב"
                   />
                   <div className="flex gap-2">
                     <input
-                      className="flex-1 bg-[var(--cream)] border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
+                      className="flex-1 bg-[var(--cream)] border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-emerald-300 focus:bg-white transition-all"
                       placeholder="שם חדר קבוע"
                     />
                     <button className="rounded-xl border border-border px-4 hover:border-emerald-400 transition-colors text-sm text-emerald-800 flex items-center gap-1.5">
@@ -211,7 +211,7 @@ function Index() {
               <div className="relative">
                 <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} />
                 <input
-                  className="bg-white border border-border rounded-full pr-9 pl-4 py-2 text-sm outline-none focus:ring-1 focus:ring-slate-300 w-56 font-light"
+                  className="bg-white border border-border rounded-full pr-9 pl-4 py-2 text-sm outline-none focus:ring-1 focus:ring-emerald-300 w-56 font-light"
                   placeholder="חיפוש חדר או בעלים…"
                 />
               </div>
@@ -310,7 +310,7 @@ function Index() {
 
         <footer className="pt-12 pb-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2 text-xs text-muted-foreground font-light">
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-300" />
             <span className="uppercase tracking-[0.2em]">TENARCH · Architectural Broadcasting</span>
           </div>
           <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
@@ -442,7 +442,7 @@ function TableView() {
             <span className="font-mono text-sm text-emerald-800">{room.participants}</span>
             <div className="mt-2 h-px w-20 mx-auto bg-border overflow-hidden">
               <div
-                className="h-full bg-slate-400"
+                className="h-full bg-emerald-400"
                 style={{ width: `${(parseInt(room.participants) / parseInt(room.participants.split("/")[1])) * 100}%` }}
               />
             </div>
@@ -484,7 +484,7 @@ function GridView() {
                 </>
               ) : (
                 <>
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-300" />
                   ממתין
                 </>
               )}
