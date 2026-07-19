@@ -64,11 +64,11 @@ function Index() {
       <header className="sticky top-0 z-40 glass border-b border-border">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 md:px-10 py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-50 border border-border">
-              <ScreenShare className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--cream)] border border-border">
+              <ScreenShare className="h-4 w-4 text-emerald-800" strokeWidth={1.5} />
             </div>
             <div className="leading-tight">
-              <div className="font-display text-lg font-light tracking-tight text-slate-900">LocalCast</div>
+              <div className="font-display text-lg font-light tracking-tight text-emerald-950">TENARCH</div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">v73 · 07-15</div>
             </div>
           </div>
@@ -79,8 +79,8 @@ function Index() {
                 key={item}
                 className={`px-4 py-2 rounded-full text-sm transition-all ${
                   i === 0
-                    ? "text-slate-900 font-medium"
-                    : "text-muted-foreground hover:text-slate-800 font-light"
+                    ? "text-emerald-950 font-medium"
+                    : "text-muted-foreground hover:text-emerald-900 font-light"
                 }`}
               >
                 {item}
@@ -92,12 +92,12 @@ function Index() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button className="rounded-full border border-border px-4 py-2 text-xs font-medium tracking-wide hover:border-slate-400 transition-colors flex items-center gap-2 text-slate-700">
+            <button className="rounded-full border border-border px-4 py-2 text-xs font-medium tracking-wide hover:border-emerald-400 transition-colors flex items-center gap-2 text-emerald-800">
               <Download className="h-3.5 w-3.5" strokeWidth={1.5} />
               עדכן תוכנה
             </button>
-            <button className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:border-slate-400 transition-colors relative">
-              <Bell className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
+            <button className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:border-emerald-400 transition-colors relative">
+              <Bell className="h-4 w-4 text-emerald-800" strokeWidth={1.5} />
               <span className="absolute top-2.5 right-2.5 h-1.5 w-1.5 rounded-full bg-[var(--color-gold)]" />
             </button>
           </div>
@@ -107,7 +107,7 @@ function Index() {
       <main className="mx-auto max-w-5xl px-6 md:px-10 py-16 space-y-16">
         {/* HERO */}
         <header className="text-center space-y-5">
-          <h1 className="font-display text-6xl md:text-7xl font-extralight tracking-tight text-slate-900">
+          <h1 className="font-display text-6xl md:text-7xl font-extralight tracking-tight text-emerald-950">
             LocalCast
           </h1>
           <div className="flex items-center justify-center gap-3">
@@ -136,16 +136,16 @@ function Index() {
               <div className="space-y-5">
                 <div className="space-y-1">
                   <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Join</div>
-                  <h2 className="font-display text-2xl font-light text-slate-900">הצטרפות לחדר קיים</h2>
+                  <h2 className="font-display text-2xl font-light text-emerald-950">הצטרפות לחדר קיים</h2>
                 </div>
                 <div className="space-y-3">
                   <FieldLabel>קוד חדר</FieldLabel>
                   <input
-                    className="w-full bg-slate-50 border border-transparent rounded-xl px-5 py-4 text-lg font-mono tracking-[0.4em] text-center outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all placeholder:text-slate-300"
+                    className="w-full bg-[var(--cream)] border border-transparent rounded-xl px-5 py-4 text-lg font-mono tracking-[0.4em] text-center outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all placeholder:text-emerald-200"
                     placeholder="0000"
                     maxLength={4}
                   />
-                  <button className="w-full bg-slate-900 text-white rounded-xl py-3.5 font-medium hover:bg-slate-800 transition-colors tracking-wide text-sm flex items-center justify-center gap-2">
+                  <button className="w-full bg-emerald-900 text-white rounded-xl py-3.5 font-medium hover:bg-emerald-800 transition-colors tracking-wide text-sm flex items-center justify-center gap-2">
                     <LogIn className="h-4 w-4" strokeWidth={1.5} />
                     כניסה לחדר
                   </button>
@@ -156,26 +156,26 @@ function Index() {
               <div className="flex flex-col justify-center border-t md:border-t-0 md:border-r border-border pt-8 md:pt-0 md:pr-12 space-y-5">
                 <div className="space-y-1">
                   <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Create</div>
-                  <h2 className="font-display text-2xl font-light text-slate-900">התחל חוויה משלך</h2>
+                  <h2 className="font-display text-2xl font-light text-emerald-950">התחל חוויה משלך</h2>
                 </div>
                 <div className="space-y-3">
                   <FieldLabel>שם משתמש (לא חובה)</FieldLabel>
                   <input
-                    className="w-full bg-slate-50 border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
+                    className="w-full bg-[var(--cream)] border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
                     placeholder="שם משתמש"
                     defaultValue="יעקב"
                   />
                   <div className="flex gap-2">
                     <input
-                      className="flex-1 bg-slate-50 border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
+                      className="flex-1 bg-[var(--cream)] border border-transparent rounded-xl px-5 py-3.5 text-sm outline-none focus:ring-1 focus:ring-slate-300 focus:bg-white transition-all"
                       placeholder="שם חדר קבוע"
                     />
-                    <button className="rounded-xl border border-border px-4 hover:border-slate-400 transition-colors text-sm text-slate-700 flex items-center gap-1.5">
+                    <button className="rounded-xl border border-border px-4 hover:border-emerald-400 transition-colors text-sm text-emerald-800 flex items-center gap-1.5">
                       <Pin className="h-3.5 w-3.5" strokeWidth={1.5} />
                       קבע
                     </button>
                   </div>
-                  <button className="group w-full flex items-center justify-center gap-2 text-slate-800 font-medium py-3.5 px-6 rounded-xl border border-slate-200 hover:border-slate-400 transition-all text-sm">
+                  <button className="group w-full flex items-center justify-center gap-2 text-emerald-900 font-medium py-3.5 px-6 rounded-xl border border-emerald-200 hover:border-emerald-400 transition-all text-sm">
                     <span>צור חדר חדש</span>
                     <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" strokeWidth={1.5} />
                   </button>
@@ -198,7 +198,7 @@ function Index() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-1">
               <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Active Sessions</div>
-              <h3 className="font-display text-2xl font-light text-slate-900 flex items-center gap-3">
+              <h3 className="font-display text-2xl font-light text-emerald-950 flex items-center gap-3">
                 חדרים פתוחים
                 <span className="text-sm text-muted-foreground font-light">— 4</span>
               </h3>
@@ -213,7 +213,7 @@ function Index() {
                 />
               </div>
 
-              <button className="rounded-full border border-border px-4 py-2 text-xs font-medium flex items-center gap-2 hover:border-slate-400 text-slate-700">
+              <button className="rounded-full border border-border px-4 py-2 text-xs font-medium flex items-center gap-2 hover:border-emerald-400 text-emerald-800">
                 <Circle className="h-2 w-2 fill-emerald-500 text-emerald-500" />
                 החדרים שלי
               </button>
@@ -236,12 +236,12 @@ function Index() {
           <div className="bg-white border border-border rounded-3xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-2xl bg-slate-50 flex items-center justify-center">
-                  <Wifi className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
+                <div className="h-10 w-10 rounded-2xl bg-[var(--cream)] flex items-center justify-center">
+                  <Wifi className="h-4 w-4 text-emerald-800" strokeWidth={1.5} />
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-0.5">Network Access</div>
-                  <h3 className="font-display text-base font-medium text-slate-900">כתובת לחיבור ממחשבים אחרים</h3>
+                  <h3 className="font-display text-base font-medium text-emerald-950">כתובת לחיבור ממחשבים אחרים</h3>
                 </div>
               </div>
               <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 font-medium uppercase tracking-wider">
@@ -263,15 +263,15 @@ function Index() {
           <div className="bg-white border border-border rounded-3xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-2xl bg-slate-50 flex items-center justify-center">
-                  <Server className="h-4 w-4 text-slate-700" strokeWidth={1.5} />
+                <div className="h-10 w-10 rounded-2xl bg-[var(--cream)] flex items-center justify-center">
+                  <Server className="h-4 w-4 text-emerald-800" strokeWidth={1.5} />
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-0.5">Servers</div>
-                  <h3 className="font-display text-base font-medium text-slate-900">שרתים ברשת</h3>
+                  <h3 className="font-display text-base font-medium text-emerald-950">שרתים ברשת</h3>
                 </div>
               </div>
-              <button className="rounded-full border border-border px-3 py-1.5 text-xs flex items-center gap-1.5 hover:border-slate-400 text-slate-700">
+              <button className="rounded-full border border-border px-3 py-1.5 text-xs flex items-center gap-1.5 hover:border-emerald-400 text-emerald-800">
                 <RefreshCw className="h-3 w-3" strokeWidth={1.5} />
                 רענן
               </button>
@@ -290,9 +290,9 @@ function Index() {
           <div className="flex items-end justify-between">
             <div className="space-y-1">
               <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-semibold">Toolkit</div>
-              <h3 className="font-display text-2xl font-light text-slate-900">כלים בזמן שידור</h3>
+              <h3 className="font-display text-2xl font-light text-emerald-950">כלים בזמן שידור</h3>
             </div>
-            <a className="text-xs text-muted-foreground border-b border-transparent hover:border-slate-300 transition-colors pb-1 cursor-pointer flex items-center gap-1">
+            <a className="text-xs text-muted-foreground border-b border-transparent hover:border-emerald-300 transition-colors pb-1 cursor-pointer flex items-center gap-1">
               כל הכלים
               <ChevronLeft className="h-3 w-3" strokeWidth={1.5} />
             </a>
@@ -308,7 +308,7 @@ function Index() {
         <footer className="pt-12 pb-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2 text-xs text-muted-foreground font-light">
             <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-            <span className="uppercase tracking-[0.2em]">LocalCast · Local Broadcasting Suite</span>
+            <span className="uppercase tracking-[0.2em]">TENARCH · Architectural Broadcasting</span>
           </div>
           <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
             v73 · פועלת ברשת מקומית בלבד
@@ -317,11 +317,11 @@ function Index() {
       </main>
 
       {/* Floating actions */}
-      <button className="fixed bottom-8 left-8 h-12 w-12 rounded-full bg-slate-900 text-white shadow-[var(--shadow-lg)] flex items-center justify-center hover:bg-slate-800 transition z-30">
+      <button className="fixed bottom-8 left-8 h-12 w-12 rounded-full bg-emerald-900 text-white shadow-[var(--shadow-lg)] flex items-center justify-center hover:bg-emerald-800 transition z-30">
         <MonitorUp className="h-5 w-5" strokeWidth={1.5} />
       </button>
-      <button className="fixed bottom-8 right-8 h-12 w-12 rounded-full bg-white border border-border shadow-[var(--shadow-md)] flex items-center justify-center hover:border-slate-400 transition z-30">
-        <Settings className="h-5 w-5 text-slate-700" strokeWidth={1.5} />
+      <button className="fixed bottom-8 right-8 h-12 w-12 rounded-full bg-white border border-border shadow-[var(--shadow-md)] flex items-center justify-center hover:border-emerald-400 transition z-30">
+        <Settings className="h-5 w-5 text-emerald-800" strokeWidth={1.5} />
       </button>
 
       {/* silence unused imports */}
@@ -341,8 +341,8 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 function FeaturePill({ icon: Icon, label }: { icon: typeof Zap; label: string }) {
   return (
     <div className="border border-border rounded-full px-3.5 py-1.5 flex items-center gap-2 text-xs bg-white">
-      <Icon className="h-3 w-3 text-slate-500" strokeWidth={1.5} />
-      <span className="font-light text-slate-700">{label}</span>
+      <Icon className="h-3 w-3 text-emerald-600" strokeWidth={1.5} />
+      <span className="font-light text-emerald-800">{label}</span>
     </div>
   );
 }
@@ -350,7 +350,7 @@ function FeaturePill({ icon: Icon, label }: { icon: typeof Zap; label: string })
 function StatCell({ value, label, divider }: { value: string; label: string; divider?: boolean }) {
   return (
     <div className={`text-center space-y-1 ${divider ? "md:border-r md:border-border" : ""}`}>
-      <div className="font-display text-3xl font-extralight text-slate-900">{value}</div>
+      <div className="font-display text-3xl font-extralight text-emerald-950">{value}</div>
       <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">{label}</div>
     </div>
   );
@@ -372,8 +372,8 @@ function ViewBtn({
       onClick={onClick}
       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs transition-all ${
         active
-          ? "bg-slate-900 text-white font-medium"
-          : "text-muted-foreground hover:text-slate-800 font-light"
+          ? "bg-emerald-900 text-white font-medium"
+          : "text-muted-foreground hover:text-emerald-900 font-light"
       }`}
     >
       <Icon className="h-3 w-3" strokeWidth={1.5} />
@@ -385,7 +385,7 @@ function ViewBtn({
 function TableView() {
   return (
     <div className="rounded-2xl overflow-hidden border border-border bg-white">
-      <div className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.2em] border-b border-border bg-slate-50/50">
+      <div className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-4 text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.2em] border-b border-border bg-emerald-50/50">
         <div>קוד</div>
         <div>חדר / בעלים</div>
         <div className="text-center">סוג</div>
@@ -395,21 +395,21 @@ function TableView() {
       {rooms.map((room) => (
         <div
           key={room.code}
-          className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-5 items-center border-b border-border last:border-b-0 hover:bg-slate-50/40 transition-colors group"
+          className="grid grid-cols-[90px_1fr_150px_150px_130px] gap-4 px-6 py-5 items-center border-b border-border last:border-b-0 hover:bg-emerald-50/40 transition-colors group"
         >
           <div className="flex items-center gap-3">
             <div className={`h-9 w-9 rounded-xl flex items-center justify-center border ${
               room.status === "live"
                 ? "bg-emerald-50 text-emerald-600 border-emerald-100"
-                : "bg-slate-50 text-slate-400 border-border"
+                : "bg-[var(--cream)] text-emerald-400 border-border"
             }`}>
               <room.icon className="h-4 w-4" strokeWidth={1.5} />
             </div>
-            <span className="font-mono text-base text-slate-900">{room.code}</span>
+            <span className="font-mono text-base text-emerald-950">{room.code}</span>
           </div>
 
           <div className="min-w-0">
-            <div className="font-display font-medium text-base truncate flex items-center gap-2 text-slate-900">
+            <div className="font-display font-medium text-base truncate flex items-center gap-2 text-emerald-950">
               {room.name}
               {room.status === "live" && (
                 <span className="inline-flex items-center gap-1.5 text-[9px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-medium uppercase tracking-[0.15em]">
@@ -424,7 +424,7 @@ function TableView() {
           </div>
 
           <div className="flex justify-center items-center gap-2">
-            <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-[0.15em] font-medium bg-slate-50 text-slate-600 border border-border inline-flex items-center gap-1">
+            <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-[0.15em] font-medium bg-[var(--cream)] text-emerald-700 border border-border inline-flex items-center gap-1">
               <Pin className="h-2.5 w-2.5" strokeWidth={1.5} />
               {room.tag}
             </span>
@@ -436,7 +436,7 @@ function TableView() {
           </div>
 
           <div className="text-center">
-            <span className="font-mono text-sm text-slate-700">{room.participants}</span>
+            <span className="font-mono text-sm text-emerald-800">{room.participants}</span>
             <div className="mt-2 h-px w-20 mx-auto bg-border overflow-hidden">
               <div
                 className="h-full bg-slate-400"
@@ -446,7 +446,7 @@ function TableView() {
           </div>
 
           <div className="flex justify-center">
-            <button className="text-xs font-medium text-slate-800 border-b border-transparent group-hover:border-slate-300 pb-0.5 flex items-center gap-1 transition-all">
+            <button className="text-xs font-medium text-emerald-900 border-b border-transparent group-hover:border-emerald-300 pb-0.5 flex items-center gap-1 transition-all">
               הצטרף
               <ArrowLeft className="h-3 w-3" strokeWidth={1.5} />
             </button>
@@ -461,16 +461,16 @@ function GridView() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
       {rooms.map((room) => (
-        <div key={room.code} className="bg-white border border-border rounded-2xl p-6 hover:border-slate-300 transition group">
+        <div key={room.code} className="bg-white border border-border rounded-2xl p-6 hover:border-emerald-300 transition group">
           <div className="flex items-start justify-between mb-5">
             <div className={`h-11 w-11 rounded-2xl flex items-center justify-center border ${
-              room.status === "live" ? "bg-slate-900 text-white border-slate-900" : "bg-slate-50 text-slate-500 border-border"
+              room.status === "live" ? "bg-emerald-900 text-white border-emerald-900" : "bg-[var(--cream)] text-emerald-600 border-border"
             }`}>
               <room.icon className="h-5 w-5" strokeWidth={1.5} />
             </div>
-            <span className="font-mono text-xl text-slate-400 font-light">{room.code}</span>
+            <span className="font-mono text-xl text-emerald-400 font-light">{room.code}</span>
           </div>
-          <div className="font-display font-medium text-base mb-1 text-slate-900">{room.name}</div>
+          <div className="font-display font-medium text-base mb-1 text-emerald-950">{room.name}</div>
           <div className="text-xs text-muted-foreground mb-5 font-light">{room.owner} · {room.hint}</div>
           <div className="flex items-center justify-between pt-4 border-t border-border">
             <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-medium inline-flex items-center gap-1.5">
@@ -486,7 +486,7 @@ function GridView() {
                 </>
               )}
             </span>
-            <span className="font-mono text-xs text-slate-600">{room.participants}</span>
+            <span className="font-mono text-xs text-emerald-700">{room.participants}</span>
           </div>
         </div>
       ))}
@@ -498,22 +498,22 @@ function ListView() {
   return (
     <div className="bg-white border border-border rounded-2xl divide-y divide-border overflow-hidden">
       {rooms.map((room) => (
-        <div key={room.code} className="p-5 flex items-center gap-4 hover:bg-slate-50/40 transition">
+        <div key={room.code} className="p-5 flex items-center gap-4 hover:bg-emerald-50/40 transition">
           <div className={`h-10 w-10 rounded-xl flex items-center justify-center border ${
-            room.status === "live" ? "bg-slate-900 text-white border-slate-900" : "bg-slate-50 border-border text-slate-500"
+            room.status === "live" ? "bg-emerald-900 text-white border-emerald-900" : "bg-[var(--cream)] border-border text-emerald-600"
           }`}>
             <room.icon className="h-4 w-4" strokeWidth={1.5} />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 text-slate-900">
-              <span className="font-mono text-sm text-slate-500">{room.code}</span>
+            <div className="flex items-center gap-2 text-emerald-950">
+              <span className="font-mono text-sm text-emerald-600">{room.code}</span>
               <span className="text-muted-foreground">·</span>
               <span className="font-display font-medium">{room.name}</span>
             </div>
             <div className="text-xs text-muted-foreground font-light">{room.owner} · {room.hint}</div>
           </div>
           <span className="text-xs font-mono text-muted-foreground">{room.participants}</span>
-          <button className="text-xs font-medium text-slate-800 border-b border-transparent hover:border-slate-300 pb-0.5">
+          <button className="text-xs font-medium text-emerald-900 border-b border-transparent hover:border-emerald-300 pb-0.5">
             הצטרף
           </button>
         </div>
@@ -526,18 +526,18 @@ function AddressRow({ url, primary }: { url: string; primary?: boolean }) {
   return (
     <div className={`flex items-center gap-2 rounded-xl p-2 ${
       primary
-        ? "bg-slate-50 border border-slate-200"
+        ? "bg-[var(--cream)] border border-emerald-200"
         : "border border-border"
     }`}>
-      <button className="rounded-lg px-3 py-2 text-xs font-medium flex items-center gap-1.5 hover:bg-white text-slate-700 border border-border">
+      <button className="rounded-lg px-3 py-2 text-xs font-medium flex items-center gap-1.5 hover:bg-white text-emerald-800 border border-border">
         <Copy className="h-3 w-3" strokeWidth={1.5} />
         העתק
       </button>
-      <div className="flex-1 font-mono text-sm px-2 py-2 truncate text-left text-slate-700" dir="ltr">
+      <div className="flex-1 font-mono text-sm px-2 py-2 truncate text-left text-emerald-800" dir="ltr">
         {url}
       </div>
       {primary && (
-        <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-white border border-border text-slate-600 uppercase tracking-[0.15em]">
+        <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-white border border-border text-emerald-700 uppercase tracking-[0.15em]">
           מועדף
         </span>
       )}
@@ -549,15 +549,15 @@ function ServerRow({ name, ip, ping, active }: { name: string; ip: string; ping:
   return (
     <div className="flex items-center gap-3 py-4 first:pt-0 last:pb-0">
       <div className={`h-9 w-9 rounded-xl flex items-center justify-center border ${
-        active ? "bg-slate-900 text-white border-slate-900" : "bg-slate-50 text-slate-500 border-border"
+        active ? "bg-emerald-900 text-white border-emerald-900" : "bg-[var(--cream)] text-emerald-600 border-border"
       }`}>
         <Server className="h-4 w-4" strokeWidth={1.5} />
       </div>
       <div className="flex-1 min-w-0">
-        <div className="font-medium text-sm truncate text-slate-900">{name}</div>
+        <div className="font-medium text-sm truncate text-emerald-950">{name}</div>
         <div className="text-xs text-muted-foreground font-mono font-light" dir="ltr">{ip}</div>
       </div>
-      <div className="text-xs font-mono text-slate-600">{ping}</div>
+      <div className="text-xs font-mono text-emerald-700">{ping}</div>
       {active && (
         <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 uppercase tracking-[0.15em] inline-flex items-center gap-1.5">
           <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
@@ -570,13 +570,13 @@ function ServerRow({ name, ip, ping, active }: { name: string; ip: string; ping:
 
 function ToolCard({ icon: Icon, title, desc }: { icon: typeof Zap; title: string; desc: string }) {
   return (
-    <div className="bg-white border border-border rounded-2xl p-6 hover:border-slate-300 transition group cursor-pointer">
-      <div className="h-10 w-10 rounded-2xl flex items-center justify-center mb-5 bg-slate-50 text-slate-500 group-hover:text-slate-900 transition-colors border border-border">
+    <div className="bg-white border border-border rounded-2xl p-6 hover:border-emerald-300 transition group cursor-pointer">
+      <div className="h-10 w-10 rounded-2xl flex items-center justify-center mb-5 bg-[var(--cream)] text-emerald-600 group-hover:text-emerald-950 transition-colors border border-border">
         <Icon className="h-4 w-4" strokeWidth={1.5} />
       </div>
-      <div className="font-display font-medium text-base mb-1.5 text-slate-900">{title}</div>
+      <div className="font-display font-medium text-base mb-1.5 text-emerald-950">{title}</div>
       <div className="text-xs text-muted-foreground leading-relaxed font-light">{desc}</div>
-      <ArrowLeft className="mt-4 h-3.5 w-3.5 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all" strokeWidth={1.5} />
+      <ArrowLeft className="mt-4 h-3.5 w-3.5 text-emerald-400 opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all" strokeWidth={1.5} />
     </div>
   );
 }
